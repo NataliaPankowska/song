@@ -1,0 +1,9 @@
+.new-play-list{
+    padding: 20px;
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.new-play-list.active {
+    background-color: blue;
+}
