@@ -1,21 +1,21 @@
 import React from 'react';
+import Track from './Track.js';
 
 
 import {useState} from 'react';
 
-function PlayList({songs, active}) {
+function PlayList({songs, active, remove}) {
 
 if(!active) return <div></div>
 return (
     <div>
         <div>{active.title}</div>
+        
     <div>
         {songs.map((song) => {
             if(song.listId === active.id) {
              return   (
-                    <div>
-                    <h1>{song.title}</h1>
-                    </div>
+                    <Track title={song.title} artist={song.artist} id={song.id} remove={remove} />
                     )
             }
            

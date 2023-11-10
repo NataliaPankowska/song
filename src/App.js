@@ -30,6 +30,10 @@ function App() {
         
     }
 
+    // const renamePlayList = (playListId) => {
+
+    // }
+
   useEffect(() => {
     const newResult = data.filter((song) =>  {
       if(searchInput.length > 0){
@@ -47,14 +51,21 @@ function App() {
           return [{id: obj.id, title: obj.title, artist: obj.artist, listId: activePlayList.id}, ...prev];
 
         } else {
-          return <div></div>
+          return <div> </div>
         }
       }else {
         return playList;
       }
     })
   }
-  console.log(playList);
+  const removeSong = (songIdToRemove) => {
+    setPlayList(() => playList.filter((song) => song.id !== songIdToRemove));
+  }
+
+  const removeList = (listIdToRemove) => {
+    setList(() => list.filter((playList) => playList.id !== listIdToRemove));
+  }
+
   
   return (
     <div>
@@ -67,6 +78,8 @@ function App() {
       setActive={setActive}
       list={list}
       takeActive={takeActive()}
+      remove={removeSong}
+      removeList={removeList}
       />
       
       {/* { 
