@@ -7,12 +7,12 @@ import PlayListBoard from './components/PlayListBoard';
 import {useState, useEffect} from 'react';
 
 const data = [
-  {id: 1, title: "All I want form Christmas", artist: "Mariah Carrey"},
-  {id: 2, title: "Money", artist: "Pink Floyd"},
-  {id: 3, title: "My Way", artist: "Frank Sinatra"},
-  {id: 4, title: "Do Ani", artist: "Kazik Staszewski"},
-  {id: 5, title: "Summer wine", artist: "Nancy Sinatra"},
-  {id: 6, title: "Twist in my sobriety", artist: "Tanita Tikkaram"},
+  {id: 1, title: "All I want form Christmas", artist: "Mariah Carrey", uri: 'q'},
+  {id: 2, title: "Money", artist: "Pink Floyd", uri: 'w'},
+  {id: 3, title: "My Way", artist: "Frank Sinatra", uri: 'e'},
+  {id: 4, title: "Do Ani", artist: "Kazik Staszewski", uri: 'r'},
+  {id: 5, title: "Summer wine", artist: "Nancy Sinatra", uri: 't'},
+  {id: 6, title: "Twist in my sobriety", artist: "Tanita Tikkaram", uri: 'y'},
 
 ]
 
@@ -21,6 +21,7 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [playList, setPlayList] = useState([]);
   const [list, setList] = useState([]);
+  const [uriList, setUriList] =useState([]);
     const [active, setActive] = useState(false);
     const addList = (playList) => setList((prev) => [playList, ...prev])
     let activePlayList;
@@ -48,7 +49,7 @@ function App() {
     setPlayList((prev) => {
       if(!playList.some((song) => song.id === obj.id)){
         if(active){
-          return [{id: obj.id, title: obj.title, artist: obj.artist, listId: activePlayList.id}, ...prev];
+          return [{id: obj.id, title: obj.title, artist: obj.artist, listId: activePlayList.id, uri: obj.uri}, ...prev];
 
         } else {
           return <div> </div>
@@ -57,20 +58,28 @@ function App() {
         return playList;
       }
     })
+    setUriList(() => playList.map((song) => song.uri))
   }
   const removeSong = (songIdToRemove) => {
     setPlayList(() => playList.filter((song) => song.id !== songIdToRemove));
+    setUriList(() => playList.map((song) => song.uri));
   }
 
   const removeList = (listIdToRemove) => {
     setList(() => list.filter((playList) => playList.id !== listIdToRemove));
   }
 
+
+
+  
+
+  
+
   
   return (
     <div>
       <SearchBar onType={setSearchInput}/>
-      <SearchResults result={searchResult} add={add}/>
+      <SearchResults result={searchResult} add={add} />
       <PlayListBoard 
       songs={playList} 
       add={addList} 
@@ -80,6 +89,7 @@ function App() {
       takeActive={takeActive()}
       remove={removeSong}
       removeList={removeList}
+      
       />
       
       {/* { 

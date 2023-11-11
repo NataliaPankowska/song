@@ -1,5 +1,6 @@
 import React from 'react';
 import Track from './Track.js';
+import SaveToSpotify from './SaveToSpotify.js';
 
 
 import {useState} from 'react';
@@ -25,6 +26,9 @@ return (
         
         )}
         
+    </div>
+    <div>
+        <SaveToSpotify />
     </div>
     
     
