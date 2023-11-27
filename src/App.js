@@ -246,19 +246,21 @@ useEffect(() =>
 
   
   return (
-    <div className=''>
+    <div className='body'>
       <div>
         { !token ?
            <a href={authorizeUrl}>Connect to Spotify</a>
           : <button onClick={logout}>log out</button>
         }
       </div>
+      <div className='search-part'>
       <SearchBar 
       onType={setSearchInput} 
       
       // onSubmit={search}
        />
       <SearchResults result={searchResult} add={add} />
+      </div>
       <PlayListBoard 
       songs={playList} 
       add={addList} 

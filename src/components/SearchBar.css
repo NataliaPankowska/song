@@ -1,0 +1,39 @@
+.container {
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+   
+}
+
+input {
+    
+    width: 300px;
+height: 40px;
+border-radius: 10px;
+opacity: .6;
+background-color: rgb(250, 218, 220);
+border-style: solid;
+padding: 15px;
+border-width: 2px;
+border-color: rgb(255, 255, 255);
+
+}
+
+input[type="text"]:focus {
+    
+   outline: none;
+    opacity: 1;
+    transition:  ease-out .5s;
+}
+.search {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.search-icon{
+    display: grid;
+    padding: 15px;
+    font-size: 1.5 em;
+    color: white;
+}
