@@ -4,7 +4,7 @@ import NewPlayList from './NewPlayList';
 import PlayList from './PlayList';
 import {useState, useEffect} from 'react';
 
-function ListOfPlayList({songs, add, active, setActive, list, takeActive, remove, removeList}) {
+function ListOfPlayList({songs, add, active, setActive, list, takeActive, remove, removeList, addToSpotify}) {
     
     // const [title, setTitle] = useState( takeActive.title);
    
@@ -28,7 +28,7 @@ function ListOfPlayList({songs, add, active, setActive, list, takeActive, remove
                 )}
             </div>
             <div>
-                <PlayList songs={songs} active={takeActive} remove={remove} />
+                <PlayList songs={songs} active={takeActive} remove={remove} addToSpotify={addToSpotify}/>
             </div>
         </div>   
  )

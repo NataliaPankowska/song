@@ -5,7 +5,7 @@ import SaveToSpotify from './SaveToSpotify.js';
 
 import {useState} from 'react';
 
-function PlayList({songs, active, remove}) {
+function PlayList({songs, active, remove, addToSpotify}) {
 
 if(!active) return <div></div>
 return (
@@ -28,7 +28,7 @@ return (
         
     </div>
     <div>
-        <SaveToSpotify />
+        <SaveToSpotify addToSpotify={addToSpotify}/>
     </div>
     
     

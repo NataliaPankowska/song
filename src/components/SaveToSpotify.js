@@ -1,9 +1,9 @@
 import React from 'react';
 
-function SaveToSpotify() {
+function SaveToSpotify({addToSpotify}) {
     return (
         <>
-        <button>Save To Spotify</button>
+        <button onClick={addToSpotify}>Save To Spotify</button>
         </>
     )
 }

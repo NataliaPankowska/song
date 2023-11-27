@@ -9,8 +9,8 @@ return (
     <div className="results">
         {result.map((song) => 
             <div>
-                <h3>{song.title}</h3>
-                <h3>{song.artist}</h3>
+                <h3>{song.name}</h3>
+                <h3>{song.artists[0].name}</h3>
                 <button onClick={() => addItem(song)}>Add</button>
             </div>
         )}
