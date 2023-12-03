@@ -229,7 +229,7 @@ try{    const addPlay = await fetch(`https://api.spotify.com/v1/users/${userId}/
     setList(() => list.filter((playList) => playList.id !== listIdToRemove));
   }
 
-
+console.log(playList)
 useEffect(() =>
 {
   if(searchInput.length > 0){
@@ -247,7 +247,7 @@ useEffect(() =>
   
   return (
     <div className='body'>
-      <div>
+      <div className='log'>
         { !token ?
            <a href={authorizeUrl}>Connect to Spotify</a>
           : <button onClick={logout}>log out</button>
@@ -262,6 +262,7 @@ useEffect(() =>
       <SearchResults result={searchResult} add={add} />
       </div>
       <PlayListBoard 
+      className="playlist-board"
       songs={playList} 
       add={addList} 
       active={active} 

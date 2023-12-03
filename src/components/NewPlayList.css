@@ -1,7 +1,10 @@
 .new-play-list{
     padding: 20px;
     cursor: pointer;
-    background-color: aqua;
+    background-color: rgb(221, 0, 255);
+   width: 100%;
+   align-self: flex-start;
+   height: auto;
 }
 
 .new-play-list.active {
